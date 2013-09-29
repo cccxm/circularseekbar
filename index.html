@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Circularseekbar by devadvance</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Circularseekbar</h1>
+        <p>Custom circular SeekBar (Circle, Semi-circle, and Ellipse) View/Widget for Android</p>
+
+        <p class="view"><a href="https://github.com/devadvance/CircularSeekBar">View the Project on GitHub <small>devadvance/CircularSeekBar</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/devadvance/CircularSeekBar/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/devadvance/CircularSeekBar/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/devadvance/CircularSeekBar">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="circularseekbar" class="anchor" href="#circularseekbar"><span class="octicon octicon-link"></span></a>CircularSeekBar</h1>
+
+<h2>
+<a name="android-circularseekbar-custom-viewwidget" class="anchor" href="#android-circularseekbar-custom-viewwidget"><span class="octicon octicon-link"></span></a>Android CircularSeekBar Custom View/Widget</h2>
+
+<p>This is a custom circular SeekBar. It can be used to create SeekBars that are:
+-Full Circles
+-Semi-Circles
+-Ellipses
+-Semi-Ellipses</p>
+
+<p>In addition, it is fully customizable via XML attributes, far beyond the default values.</p>
+
+<p><img src="https://lh3.googleusercontent.com/-1JEeXRNfhYc/Ukiy_myxcoI/AAAAAAAAJD0/k8nGDGxfg7k/w281-h500-no/1.png" alt="Screenshot 1"></p>
+
+<h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p>In order to use the CircularSeekBar, you need to do two things.</p>
+
+<h3>
+<a name="add-source-files-to-project" class="anchor" href="#add-source-files-to-project"><span class="octicon octicon-link"></span></a>Add Source Files to Project</h3>
+
+<p>There are two files you need to include:
+-CircularSeekBar.java
+-attrs.xml</p>
+
+<p>Place the attrs.xml file inside of your res/values directory.</p>
+
+<pre><code>../yourprojectdir/res/values/attrs.xml
+</code></pre>
+
+<p>Place CircularSeekBar.java inside of the src folder with the entire directory structure included:</p>
+
+<pre><code>../yourprojectdir/src/com/devadvance/circularseekbar/CircularSeekBar.java
+</code></pre>
+
+<p>To use any methods inside if your classes, you must import the correct file. Add this to any classes you want to programmatically use the CircularSeekBar in:</p>
+
+<pre><code>import com.devadvance.circularseekbar.CircularSeekBar;
+</code></pre>
+
+<h3>
+<a name="add-circularseekbar-to-your-layout" class="anchor" href="#add-circularseekbar-to-your-layout"><span class="octicon octicon-link"></span></a>Add CircularSeekBar to Your Layout</h3>
+
+<p>Start by adding this to the root of your layout xml file(s):</p>
+
+<pre><code>xmlns:circle="http://schemas.android.com/apk/res-auto"
+</code></pre>
+
+<p>After you add it, the root of your layout xml file(s) should look SIMILAR to this:</p>
+
+<pre><code>&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:circle="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" &gt;
+</code></pre>
+
+<p>To add the basic CircularSeekBar to your layout, add this to your layout xml file(s) where desired:</p>
+
+<pre><code>&lt;com.devadvance.circularseekbar.CircularSeekBar
+android:id="@+id/circularSeekBar1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content" /&gt;
+</code></pre>
+
+<p>For further configuration, such as color, sizes, and angle, you can specify many attributes associated with the CircularSeekBar, such as:</p>
+
+<pre><code>circle:start_angle="270"
+circle:end_angle="270"
+circle:circle_x_radius="100"
+circle:circle_y_radius="100"
+circle:use_custom_radii="true"
+circle:progress="25"
+circle:max="100"
+circle:pointer_alpha_ontouch="100"
+circle:pointer_color="#0174DF"
+circle:pointer_halo_color="#880174DF"
+</code></pre>
+
+<p><b>Note: all sizes are measured in DEGREES or DP. No pixels are used.</b></p>
+
+<p>You can also change the standard Android view attributes, such as:</p>
+
+<pre><code>android:layout_width="300dp"
+android:layout_height="300dp"
+android:layout_marginTop="100dp"
+android:padding="0dp"
+</code></pre>
+
+<p>To use the CircularSeekBar programmatically, you can treat it like a normal SeekBar inside of your code:</p>
+
+<pre><code>CircularSeekBar seekbar = (CircularSeekBar) findViewById(R.id.circularSeekBar1);
+seekbar.getProgress();
+seekbar.setProgress(50);
+</code></pre>
+
+<p>To use the listener to detect progress changes, first add the import for the class at the top of your file:</p>
+
+<pre><code>import com.devadvance.circularseekbar.CircularSeekBar.OnCircularSeekBarChangeListener;
+</code></pre>
+
+<p>Next, create a listener that implements the OnCircularSeekBarChangeListener:</p>
+
+<pre><code>public class CircleSeekBarListener implements OnCircularSeekBarChangeListener {
+    @Override
+    public void onProgressChanged(CircularSeekBar seekBar, int progress, boolean fromUser) {
+        // TODO Insert your code here
+
+    }
+}
+</code></pre>
+
+<p>Then create a new instance of it and set it for your seekbar:</p>
+
+<pre><code>seekbar.setOnSeekBarChangeListener(new CircleSeekBarListener());
+</code></pre>
+
+<h2>
+<a name="all-available-attributes" class="anchor" href="#all-available-attributes"><span class="octicon octicon-link"></span></a>All Available Attributes</h2>
+
+<p>Available Attributes:</p>
+
+<p><b>progress</b> - Integer Value.</p>
+
+<p><b>max</b> - Integer Value.</p>
+
+<p><b>start_angle</b> - Decimal Value. Start angle of the circle. Angles are relative to 3 o'clock (positive X axis).</p>
+
+<p><b>end_angle</b> - Decimal Value. End angle of the circle. Angles are relative to 3 o'clock (positive X axis).</p>
+
+<p><b>maintain_equal_circle</b> - True/False. This controls whether or not an ellipse shape is available. Ellipses are not accurate in terms of representing progress, so be aware of that when you set this to false. Default value is true.</p>
+
+<p><b>use_custom_radii</b> - True/False. If true, then you can specify radii using attributes. No matter what is specified, they will not exceed the bounds of the View itself. If false, then the View size (android:layout_width and android:layout_height) is used.</p>
+
+<p><b>circle_x_radius</b> - Decimal Value. Custom X radius in DP.. Requires use_custom_radii to be true.</p>
+
+<p><b>circle_y_radius</b> - Decimal Value. Custom Y radius in DP. Requires use_custom_radii to be true.</p>
+
+<p><b>circle_stroke_width</b> - Decimal Value. Defines the width of the circle ring in DP.</p>
+
+<p><b>pointer_radius</b> - Decimal Value. Defines the radius of the pointer in DP.</p>
+
+<p><b>pointer_halo_width</b> - Decimal Value. Defines the width of the pointer halo in DP. Note: This is NOT a radius; it is in addition to the pointer radius.</p>
+
+<p><b>pointer_halo_border_width</b> - Decimal Value. Defines the width of the pointer halo border in DP. Note: This is NOT a radius; it is in addition to the pointer radius. The border shows up when the user is touching the CircularSeekBar.</p>
+
+<p><b>circle_color</b> - String value. Hex color value, can be #RRGGBB or #AARRGGBB (where AA is the alpha value).</p>
+
+<p><b>circle_progress_color</b> - String value. Hex color value, can be #RRGGBB or #AARRGGBB (where AA is the alpha value).</p>
+
+<p><b>pointer_color</b> - String value. Hex color value, can be #RRGGBB or #AARRGGBB (where AA is the alpha value).</p>
+
+<p><b>pointer_halo_color</b> - String value. Hex color value, can be #RRGGBB or #AARRGGBB (where AA is the alpha value). If no alpha is included, it defaults to 200 (out of 255).</p>
+
+<p><b>pointer_alpha_ontouch</b> - Integer value. When the user touches the CircularSeekBar, the opacity/alpha of the pointer halo changes to this value. Defaults to 100 (out of 255).</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+    
+
+<pre><code> Copyright 2013 Matt Joseph
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in  writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,  either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+</code></pre>
+
+<h2>
+<a name="inspired-and-guided-by" class="anchor" href="#inspired-and-guided-by"><span class="octicon octicon-link"></span></a>Inspired and Guided By</h2>
+
+<p>HoloCircleSeekBar - Copyright 2012 <strong>Jesús Manzano</strong></p>
+
+<p>HoloColorPicker - Copyright 2012 <strong>Lars Werkman (Designed by Marie Schweiz)</strong></p>
+
+<p>Although I did not used the code from either project directly, they were both used as reference material, and as a result, were extremely helpful.</p>
+
+<h2>
+<a name="other-screenshots" class="anchor" href="#other-screenshots"><span class="octicon octicon-link"></span></a>Other Screenshots</h2>
+
+<p><img src="https://lh6.googleusercontent.com/-mq64-hEt_KM/Ukiy_swcllI/AAAAAAAAJD8/jy7pyKaFAaQ/w281-h500-no/2.png" alt="Screenshot 2"></p>
+
+<p><img src="https://lh6.googleusercontent.com/-amwGemq-PDQ/Ukiy_rP832I/AAAAAAAAJEE/BjKuqqQVzeQ/w281-h500-no/3.png" alt="Screenshot 3"><img src="https://lh5.googleusercontent.com/-Mh-_AoEunxw/UkizAF-T5HI/AAAAAAAAJEI/tR0Sl5vCLVo/w281-h500-no/4.png" alt="Screenshot 4"></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/devadvance">devadvance</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-44453238-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
