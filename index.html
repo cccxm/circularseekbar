@@ -91,6 +91,15 @@
 <pre><code>import com.devadvance.circularseekbar.CircularSeekBar;
 </code></pre>
 
+<p>You also need to add the import for the generated R class to the CircularSeekBar class. You need to change the top of the CircularSeekBar.java file to look like this:</p>
+
+<pre><code>package com.devadvance.circularseekbar;
+
+import com.example.yourappname.R;
+</code></pre>
+
+<p>where <b>"com.example.yourappname"</b> depends on your project/app. Eclipse <em>may</em> offer to add this import for you.</p>
+
 <h3>
 <a name="add-circularseekbar-to-your-layout" class="anchor" href="#add-circularseekbar-to-your-layout"><span class="octicon octicon-link"></span></a>Add CircularSeekBar to Your Layout</h3>
 
