@@ -36,10 +36,13 @@
 
 <p>This is a custom circular SeekBar. It can be used to create SeekBars that are:</p>
 
-<p>-Full Circles
--Semi-Circles
--Ellipses
--Semi-Ellipses</p>
+<p>-Full Circles</p>
+
+<p>-Semi-Circles</p>
+
+<p>-Ellipses</p>
+
+<p>-Semi-Ellipses</p>
 
 <p>In addition, it is fully customizable via XML attributes, far beyond the default values.</p>
 
@@ -93,14 +96,14 @@
 
 <p>Start by adding this to the root of your layout xml file(s):</p>
 
-<pre><code>xmlns:circle="http://schemas.android.com/apk/res-auto"
+<pre><code>xmlns:app="http://schemas.android.com/apk/res/com.devadvance.circulartest"
 </code></pre>
 
 <p>After you add it, the root of your layout xml file(s) should look SIMILAR to this:</p>
 
 <pre><code>&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:circle="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res/com.devadvance.circulartest"
     android:layout_width="match_parent"
     android:layout_height="match_parent" &gt;
 </code></pre>
@@ -115,16 +118,16 @@ android:layout_height="wrap_content" /&gt;
 
 <p>For further configuration, such as color, sizes, and angle, you can specify many attributes associated with the CircularSeekBar, such as:</p>
 
-<pre><code>circle:start_angle="270"
-circle:end_angle="270"
-circle:circle_x_radius="100"
-circle:circle_y_radius="100"
-circle:use_custom_radii="true"
-circle:progress="25"
-circle:max="100"
-circle:pointer_alpha_ontouch="100"
-circle:pointer_color="#0174DF"
-circle:pointer_halo_color="#880174DF"
+<pre><code>app:start_angle="270"
+app:end_angle="270"
+app:circle_x_radius="100"
+app:circle_y_radius="100"
+app:use_custom_radii="true"
+app:progress="25"
+app:max="100"
+app:pointer_alpha_ontouch="100"
+app:pointer_color="#0174DF"
+app:pointer_halo_color="#880174DF"
 </code></pre>
 
 <p><b>Note: all sizes are measured in DEGREES or DP. No pixels are used.</b></p>
