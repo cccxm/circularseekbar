@@ -4,6 +4,8 @@
     <declare-styleable name="CircularSeekBar">
         <attr name="progress" format="integer"/>
         <attr name="max" format="integer"/>
+        <attr name="progressOffset" format="integer" />
+        <attr name="touchEnable" format="boolean" />
         <attr name="move_outside_circle" format="boolean"/>
         <attr name="maintain_equal_circle" format="boolean"/>
         <attr name="use_custom_radii" format="boolean"/>
