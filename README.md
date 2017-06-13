@@ -159,6 +159,10 @@ Available Attributes:
 
 <b>circle_x_radius</b> - Decimal Value. Custom X radius in DP.. Requires use_custom_radii to be true.
 
+<b>progressOffset</b> - Integer Value . 绘制进度条起点偏移量。
+
+<b>touchEnable</b> - Boolean Value . 是否允许拖动。
+
 <b>circle_y_radius</b> - Decimal Value. Custom Y radius in DP. Requires use_custom_radii to be true.
 
 <b>circle_stroke_width</b> - Decimal Value. Defines the width of the circle ring in DP.
